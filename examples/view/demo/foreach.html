@@ -1,0 +1,14 @@
+
+
+ <table border="1">
+  @foreach($data as $row)
+  
+    @if($row->id > 0)
+     <tr>
+       <td>{{$row->id }}</td>
+       <td>{!!$row->name!!}</td>
+     </tr>
+    @endif
+  @endforeach
+  </table>
+  

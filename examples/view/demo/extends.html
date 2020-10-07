@@ -1,0 +1,29 @@
+
+@extends('layout.default')
+
+@section('head')
+
+  
+@endsection
+
+@section('content')
+
+ @include('components.nav',['date' => '2020-10-07','title'=>$title])
+ 
+ <h1>
+ {{$title}}
+ </h1>
+ 
+ <table border="1">
+  @foreach($data as $row)
+  
+    @if($row->id > 0)
+     <tr>
+       <td>{{$row->id }}</td>
+       <td>{!!$row->name!!}</td>
+     </tr>
+    @endif
+  @endforeach
+  </table>
+  
+@endsection

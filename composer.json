@@ -1,0 +1,25 @@
+{
+    "name": "wudimeicom/template",
+    "version" :"0.1",
+    "description": "Wudimeicom/template is a php template engine like blade",
+    "type": "library",
+    "keywords":["template","view"],
+    "homepage":"https://github.com/wudimeicom/template",
+    "license": "LGPL",
+    "authors": [
+        {
+            "name": "Yang Qing-rong",
+            "email": "yangqingrong@wudimei.com",
+            "homepage": "http://en.wudimei.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Wudimei\\": "src/"
+        }
+    }
+}

@@ -1,0 +1,11 @@
+
+@loop( $students , $stu )
+
+ @if( $stu['id'] > 0)
+ {{$stu['id']}} {{$stu['name']}} <br />
+ @endif
+ 
+@endloop
+
+
+@sayHello('Wudimei Template Engine!')

@@ -1,0 +1,53 @@
+
+@extends('layout.default')
+
+@section('head')
+
+  
+@endsection
+
+@section('content')
+
+ @include('components.nav',['date' => '2020-10-07','title'=>$title])
+ 
+ <h1>
+ {{$title}}
+ </h1>
+ 
+ <table border="1">
+  @foreach($data as $row)
+  
+    @if($row->id > 0)
+     <tr>
+       <td>{{$row->id }}</td>
+       <td>{!!$row->name!!}</td>
+     </tr>
+    @endif
+  @endforeach
+  </table>
+  
+  @php
+  $ad ="Wudimei Template Engine is free of charge.";
+  $__TPL .= $ad; //output to template
+  
+  @endphp
+ 
+  <hr />
+  <? $n="dfgg";?>
+		<?= $n?>
+		<?php echo $n;?>
+		{{--
+		comment here,won't be shown.fa lao po feng!
+		@keep, keep the same,tell engine don't parse it.
+		--}}
+		
+		@keep
+	
+	  @foreach($data as $row)
+	    @if($row->id > 0)
+	      {{$row->id }}
+	    @endif
+	  @endforeach
+  @endkeep
+ 
+@endsection
