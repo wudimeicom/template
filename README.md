@@ -316,5 +316,4 @@ echo $template->fetch('demo.customize',compact('students'));
 if you want,please donate very small amout money to me for helping this project,include future improvement,bug fixed.
 wechat:wudimei_com
 paypal: yangqingrong@gmail.com
-
-<img src="examples/mm_facetoface_collect_qrcode_1601860587196.png" />
+!(https://github.com/wudimeicom/template/blob/main/examples/mm_facetoface_collect_qrcode_1601860587196.png?raw=true)
