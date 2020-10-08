@@ -315,9 +315,12 @@ echo $template->fetch('demo.customize',compact('students'));
 
 @sayHello('Wudimei Template Engine!')
 ```
+
+## Donation
+
 if you want,feel free to donate very small amout money to me for helping this project,include future improvement,bug fixed.
 
-TIP:THIS PROJECT IS FREE OF CHARGE! DONATION IS NOT REQUIRED!
+TIP:THIS PROJECT IS `FREE OF CHARGE` ! DONATION IS `NOT REQUIRED`!
 
 wechat:wudimei_com
 
@@ -331,6 +334,5 @@ paypal: yangqingrong@gmail.com
 
 [paypal.me/yangqingrong1985](https://paypal.me/yangqingrong1985)
 
-TIP:THIS PROJECT IS FREE OF CHARGE! DONATION IS NOT REQUIRED!
-
+TIP:THIS PROJECT IS `FREE OF CHARGE` ! DONATION IS `NOT REQUIRED`!
 
