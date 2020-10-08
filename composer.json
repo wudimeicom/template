@@ -5,7 +5,7 @@
     "type": "library",
     "keywords":["template","view"],
     "homepage":"https://github.com/wudimeicom/template",
-    "license": "LGPL",
+    "license": "LGPL-2.1-only",
     "authors": [
         {
             "name": "Yang Qing-rong",

@@ -2,11 +2,15 @@
 Wudimeicom/template is a php template engine like blade,They aren't the same.
 
 
-## License
+# License
 This software is distributed under the [LGPL 2.1](http://www.gnu.org/licenses/lgpl-2.1.html) license, along with the [GPL Cooperation Commitment](https://gplcc.github.io/gplcc/). Please read LICENSE for information on the software availability and distribution.
 
+#Installation
+```sh
+composer require wudimeicom/template
+```
 
-## usage
+# usage
 
 ### examples/init.php
 ```php
@@ -62,6 +66,7 @@ hello,Yang Qing-rong!
 ```
 ## @
 two `@@` represent `@` itself.
+
 input
 ```html
 Email: yangqingrong@@wudimei.com
@@ -318,7 +323,7 @@ echo $template->fetch('demo.customize',compact('students'));
 
 ## Donation
 
-if you want,feel free to donate very small amout money to me for helping this project,include future improvement,bug fixed.
+if you want,feel free to donate very small amout money to me for helping this project,include future improvement,bug fix.
 
 TIP:THIS PROJECT IS `FREE OF CHARGE` ! DONATION IS `NOT REQUIRED`!
 
