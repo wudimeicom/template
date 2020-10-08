@@ -315,7 +315,22 @@ echo $template->fetch('demo.customize',compact('students'));
 
 @sayHello('Wudimei Template Engine!')
 ```
-if you want,please donate very small amout money to me for helping this project,include future improvement,bug fixed.
+if you want,feel free to donate very small amout money to me for helping this project,include future improvement,bug fixed.
+
+TIP:THIS PROJECT IS FREE OF CHARGE! DONATION IS NOT REQUIRED!
+
 wechat:wudimei_com
+
+alipay:wudimei_com@163.com
+
 paypal: yangqingrong@gmail.com
-![Alt text](https://github.com/wudimeicom/template/blob/main/examples/mm_facetoface_collect_qrcode_1601860587196.png?raw=true)
+
+![wechat](https://assets.wudimei.com/YangQing-rong/YangQing-rong.wechat.png)
+
+![alipay](https://assets.wudimei.com/YangQing-rong/YangQing-rong.alipay.jpg)
+
+[paypal.me/yangqingrong1985](https://paypal.me/yangqingrong1985)
+
+TIP:THIS PROJECT IS FREE OF CHARGE! DONATION IS NOT REQUIRED!
+
+
