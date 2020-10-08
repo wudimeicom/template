@@ -5,22 +5,24 @@ Wudimeicom/template is a php template engine like blade,They aren't the same.
 # License
 This software is distributed under the [LGPL 2.1](http://www.gnu.org/licenses/lgpl-2.1.html) license, along with the [GPL Cooperation Commitment](https://gplcc.github.io/gplcc/). Please read LICENSE for information on the software availability and distribution.
 
-#Installation
+# Installation
 ```sh
-composer require wudimeicom/template
+composer require wudimeicom/template:dev-main
 ```
 
-# usage
+# Usage
 
 ### examples/init.php
 ```php
 <?php
+/*
 ini_set("display_errors",true);
 error_reporting(E_ALL|E_ERROR);
-
+*/
 use Wudimei\Template;
 
-require_once __DIR__ . '/../src/Template.php';
+//require_once __DIR__ . '/../src/Template.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
 $config =[
   'paths' => [
@@ -56,7 +58,7 @@ echo $content;
 ```
 
 ### examples/view/demo/hello.html
-```json
+```Blade
 hello,{{$name}}!
 ```
 
@@ -68,7 +70,7 @@ hello,Yang Qing-rong!
 two `@@` represent `@` itself.
 
 input
-```html
+```Blade
 Email: yangqingrong@@wudimei.com
 ```
 output
@@ -91,7 +93,7 @@ echo $content;
 ?>
 ```
 ### examples/view/demo/ifelse.html
-```json
+```Blade
 
 @if( 90 <= $score && $score <=100)
 A
@@ -116,29 +118,23 @@ B
 ### examples/foreach.php
 ```php
 <?php
-
 require_once __DIR__ . '/init.php';
-
-
 
 $data =[];
 for( $i =1; $i<3;$i++){
-		$item =new stdClass();
-		$item->id=$i;
-		$item->name ='Yang Qing-rong'.$i;
-		
-		$data[] =$item;
+ $item =new stdClass();
+	$item->id=$i;
+	$item->name ='Yang Qing-rong'.$i;
+	$data[] =$item;
 }
 
-
-$content = $template->fetch('demo.foreach',
-                compact('data')
-           );
-echo $content;
+echo $template->fetch('demo.foreach',
+      compact('data')
+     );
 ?>
 ```
 ### examples/view/demo/foreach.html
-```html
+```Blade
 
  <table border="1">
   @foreach($data as $row)
@@ -176,7 +172,7 @@ echo $content;
 ```
 
 ### comment
-```html
+```Blade
 {{--
 comment here,won't be shown
 --}}
@@ -187,7 +183,7 @@ comment here,won't be shown
 the code inside `@php` and `@endphp` will be translate to php tags `<?php` and `?>`.
 if you wanna display a variable,please append the var to `$__TPL`.
 
-```html
+```Blade
   @php
   $ad ="Wudimei Template Engine is free of charge.";
   $__TPL .= $ad; //output to template
@@ -197,16 +193,15 @@ if you wanna display a variable,please append the var to `$__TPL`.
 ### keep
 the code between `@keep` and `@endkeep` don't change.
 
-```html
-	
-		@keep
+```Blade
+@keep
 	
 	  @foreach($data as $row)
 	    @if($row->id > 0)
 	      {{$row->id }}
 	    @endif
 	  @endforeach
-  @endkeep
+@endkeep
 ```
 
 ## @include
@@ -214,7 +209,7 @@ the code between `@keep` and `@endkeep` don't change.
  include a view by viewName,also pass view variables to it.
  
 ###  examples/view/components/nav.html
-```html
+```Blade
 <nav style="background-color:#E8E8E8;">
 
 {{$date}}
@@ -223,17 +218,23 @@ the code between `@keep` and `@endkeep` don't change.
 
 </nav>
 ```
-
-```html
+In another file,let's include `components.nav`,and pass an array to the second argument.
+```Blade
 @include('components.nav',['date' => '2020-10-07','title'=>$title])
  
 ```
 
 
-## @extends(const string parentViewName )
+## Extends 
+
+`@extends(const string parentViewName )`
+
+`@extends` similar the OOP's extending.
+
+The super view,or parent view look like below:
 
 ###  examples/view/layout/default.html
-```html
+```Blade
 <!DOCTYPE html>
 <html>
 <head>
@@ -253,7 +254,8 @@ the code between `@keep` and `@endkeep` don't change.
 
 ### examples/view/demo/extends.html
 now,we create a sub view,to enhance it.
-```html
+
+```Blade
 @extends('layout.default')
 
 @section('head')
@@ -308,7 +310,9 @@ echo $template->fetch('demo.customize',compact('students'));
 ```
 
 ### examples/view/demo/customize.html
-```html
+The OP `@loop`,`@endloop` and `@sayHello` were defined above.
+ 
+```Blade
 @loop( $students , $stu )
 
  @if( $stu['id'] > 0)
