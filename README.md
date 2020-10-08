@@ -60,8 +60,16 @@ hello,{{$name}}!
 ```html
 hello,Yang Qing-rong!
 ```
-
-
+## @
+two `@@` represent `@` itself.
+input
+```html
+Email: yangqingrong@@wudimei.com
+```
+output
+```html
+Email: yangqingrong@wudimei.com
+```
 ### examples/ifelse.php
 ```php
 <?php
@@ -164,19 +172,13 @@ echo $content;
 
 ### comment
 ```html
-	{{--
-		comment here,won't be shown
-		--}}
+{{--
+comment here,won't be shown
+--}}
 ```
 
-### comment
-```html
-	{{--
-		comment here,won't be shown
-		--}}
-```
 
-### comment
+### @php @endphp
 the code inside `@php` and `@endphp` will be translate to php tags `<?php` and `?>`.
 if you wanna display a variable,please append the var to `$__TPL`.
 
@@ -316,4 +318,4 @@ echo $template->fetch('demo.customize',compact('students'));
 if you want,please donate very small amout money to me for helping this project,include future improvement,bug fixed.
 wechat:wudimei_com
 paypal: yangqingrong@gmail.com
-!(https://github.com/wudimeicom/template/blob/main/examples/mm_facetoface_collect_qrcode_1601860587196.png?raw=true)
+![Alt text](https://github.com/wudimeicom/template/blob/main/examples/mm_facetoface_collect_qrcode_1601860587196.png?raw=true)

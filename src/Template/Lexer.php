@@ -11,6 +11,7 @@ class Lexer
 		$arr =[];
 		$parr =[
 		
+		'#^@{2}#msA' => 'AT',
 		'#^@php(.*)@endphp#msA' => 'PHP',
 		'#^@keep(.*)@endkeep#msA' => 'KEEP',
 		'#^\{\{\-\-(.*)\-\-\}\}#msA' => 'COMMENT',

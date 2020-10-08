@@ -31,6 +31,10 @@ class Parser
 	      
 	        $code = $this->php( '/'.'* '.$src.' *'.'/' );
 	      }
+	      elseif( $tag == 'AT')
+	      {
+	        $code ='$__TPL .=\'@\'; ' ;
+	      }
 	      elseif( $tag == 'PHP')
 	      {
 	        $code = $this->php($src );
