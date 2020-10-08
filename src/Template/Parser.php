@@ -6,29 +6,27 @@ class Parser
   protected $template;
   protected $view;
   private $_includes =[];
-  
+
 	 public  function __construct($template,$view){
 		  $this->template = $template;
 		  $this->view = $view;
 	 }
-	 
+
 	 public  function parse(){
 	    $viewPath = $this->template->getViewPath($this->view);
 	    $content = file_get_contents($viewPath);
 	    $tks = Lexer::lex($content);
 	    $tks = $this->translate($tks);
 	    $struct = $this->parse_template_struct($tks);
-	   // print_r($struct);
 	    return $this->generateCode($struct);
 	 }
-	 
+
 	 protected function translate($tks){
 	   foreach( $tks as $i => $t){
 	      $tag = $t['TAG'];
 	      $src = isset($t['SRC'])?$t['SRC']:'';
 	      $code = '';
 	      if( $tag == 'COMMENT'){
-	      
 	        $code = $this->php( '/'.'* '.$src.' *'.'/' );
 	      }
 	      elseif( $tag == 'AT')
@@ -63,11 +61,9 @@ class Parser
 	          $code = $this->php( '}'. $name .'( '.$args.' ){ ') ;
 	        }
 	        elseif(in_array($name,['else'])){
-	        
 	          $code = $this->php( '}'. $name .'{ ') ;
 	        }
 	        elseif(in_array($name,['endif'])){
-	        
 	          $code = $this->php( '}') ;
 	        }
 	        elseif(in_array($name,['foreach'])){

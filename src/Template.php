@@ -30,7 +30,7 @@ class Template
      }
 		   $this->config = $cfg;
 	 }
-	 
+
 	 public function fetch($view,$vars){
 	 
 	    $cpath = $this->getCompiledPath($view);
@@ -51,7 +51,7 @@ class Template
 	        $require_compile =true;
 	      }
 	    }
-	    
+
 			  $parser =new Parser($this,$view);
 	    if( $require_compile == true){
 			    $code = $parser->parse();
@@ -68,13 +68,13 @@ class Template
 	    $c = $obj->__MAIN($vars);
 	    return $c;
 	 }
-	 
+
 	 public function getPath($view){
 	   $v = str_replace('.','/',$view);
 	   return $v .'.' . $this->config['ext'];
 	 }
-	 
-	 
+
+
 	 public function getViewPath($view){
 	   $absPath = '';
 	   foreach( $this->config['paths'] as $path )
@@ -91,11 +91,12 @@ class Template
 	   }
 	   return $absPath;
 	 }
-	 
+
 	 public function getCompiledPath($view){
-	    return $this->config['compiled'].'/'.$this->getPath($view).'.phtml'; 
+	    $v = str_replace('.','/',$view);
+	    return $this->config['compiled'].'/'.$v.'.phtml'; 
 	 }
-	 
+
 	 public function addOp($op)
 	 { 
 	   if( is_string($op)){
@@ -105,7 +106,7 @@ class Template
 	     $this->op_array = array_merge($this->op_array,$op);
 	   }
 	 }
-	 
+
 	 public function getOpArray(){
 	    return $this->op_array;
 	 }
