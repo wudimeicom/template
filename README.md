@@ -133,42 +133,44 @@ echo $template->fetch('demo.foreach',
      );
 ?>
 ```
+# Foreach
+`@foreach` as same as `foreach` in php
+if $data is empty,goto `@foreachelse` block.
+
 ### examples/view/demo/foreach.html
 ```Blade
+<table border="1">
+@foreach($data as $row)
+ @if($row->id > 0)
+  <tr>
+   <td>{{$row->id }}</td>
+   <td>{!!$row->name!!}</td>
+  </tr>
+ @endif
+@foreachelse
+  
+ Sorry,no data.
 
- <table border="1">
-  @foreach($data as $row)
-  
-    @if($row->id > 0)
-     <tr>
-       <td>{{$row->id }}</td>
-       <td>{!!$row->name!!}</td>
-     </tr>
-    @endif
-  @endforeach
-  </table>
-  
+@endforeach
+</table>
 ```
 
 ### browser output
 ```html
- <table border="1">
-  
-  
-    
-     <tr>
-       <td>1</td>
-       <td>Yang Qing-rong1</td>
-     </tr>
-    
-  
-    
-     <tr>
-       <td>2</td>
-       <td>Yang Qing-rong2</td>
-     </tr>
-    </table>
+<table border="1">
 
+ 
+  <tr>
+   <td>1</td>
+   <td>Yang Qing-rong1</td>
+  </tr>
+ 
+ 
+  <tr>
+   <td>2</td>
+   <td>Yang Qing-rong2</td>
+  </tr>
+ </table>
 ```
 
 ### comment

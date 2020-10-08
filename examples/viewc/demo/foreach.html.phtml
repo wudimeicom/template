@@ -7,29 +7,29 @@ class view_demo_foreach{
 public function __MAIN($__VARS){ 
 extract($__VARS);
 $__TPL ='';
-$__TPL .= '
-
- <table border="1">
-  ';
+$__TPL .= '<table border="1">
+';
  if( !empty($data)){foreach($data as $row){ 
 $__TPL .= '
-  
-    ';
+ ';
  if( $row->id > 0 ){  
 $__TPL .= '
-     <tr>
-       <td>';
+  <tr>
+   <td>';
  $__TPL .=  htmlspecialchars($row->id ); 
 $__TPL .= '</td>
-       <td>';
+   <td>';
  $__TPL .= $row->name; 
 $__TPL .= '</td>
-     </tr>
-    ';
+  </tr>
+ ';
  } 
+ }}else{{ 
+$__TPL .= 'Sorry,no data.
+
+';
  }} 
-$__TPL .= '</table>
-  ';
+$__TPL .= '</table>';
 return $__TPL;
 } 
 
