@@ -9,7 +9,11 @@ $vars['links'] = [
  'ifelse.php',
  'foreach.php',
  'extends.php',
- 'customize.php'
+ 'use_layout.php',
+ 'parent.php',
+ 'yield.php',
+ 
+ 'customize.php',
 ];
 
 $content = $template->fetch('demo.index',$vars);

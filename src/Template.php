@@ -23,6 +23,8 @@ class Template
          'ext' => 'html',
 	        'force_compile' => true,
 	        'compile_check' => true,
+	        'write_do_not_edit_comment' => true,
+	        'reduce_white_chars' => true,
      ];
      if( !empty( $c ))
      {
@@ -30,9 +32,15 @@ class Template
      }
 		   $this->config = $cfg;
 	 }
-
+  
+  public function config($key)
+  {
+    return $this->config[$key];
+  }
 	 public function fetch($view,$vars){
-	 
+	    unset($vars['_']);
+	    unset($vars['M']);
+	    unset($vars['V']);
 	    $cpath = $this->getCompiledPath($view);
 	    $require_compile =false;
 	    if(file_exists($cpath) == false)
@@ -65,7 +73,7 @@ class Template
 	    require_once $cpath;
 	    $cls = $parser->className($view);
 	    $obj = new $cls();
-	    $c = $obj->__MAIN($vars);
+	    $c = $obj->M($vars);
 	    return $c;
 	 }
 

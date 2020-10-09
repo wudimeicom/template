@@ -29,13 +29,18 @@ $config =[
     __DIR__.'/view'
   ],
   'compiled' => __DIR__.'/viewc',
-  //view file extension html
+  //view's file extension, html
   'ext' => 'html',
   //if true,recompile anyhow
   'force_compile' => true,
   //if view is modified,recompile again.
 	 'compile_check' => true,
+	 //write "don't edit this content" in compiled file
+	 'write_do_not_edit_comment' => false,
+	 //multiple white characters to one blank char
+	 'reduce_white_chars' => false,
 ];
+
 
 $template =new Template($config);
 
@@ -66,6 +71,14 @@ hello,{{$name}}!
 ```html
 hello,Yang Qing-rong!
 ```
+## keywords
+
+Template's keywords are : `_`,`V`,`M`
+
+`$_` the template content variable.
+`$V` keep the variables assigned by you.
+`M`  is the main section name.
+
 ## @
 two `@@` represent `@` itself.
 
@@ -275,6 +288,48 @@ now,we create a sub view,to enhance it.
  
 @endsection
  ```
+## yield
+
+file name: `examples/layout/yield.html`
+
+`@yield('section_name' ,'default value')`
+`@yield` is similar the `@section`,but `@yield` is a bachelor,no `@endyield`.
+```Blade
+<!DOCTYPE html>
+<html>
+<head>
+@section('head')
+
+@endsection
+</head>
+<body>
+
+@yield('content' ,$title)
+
+</body>
+</html>
+```
+file name: `examples/demo/yield.html`
+
+`@parent` get parent section or yield 's content,and render here.
+
+```Blade
+@extends('layout.yield')
+
+@section('head')
+
+  
+@endsection
+
+@section('content')
+ @parent()
+ <h1>
+ {{$title}}
+ </h1>
+ 
+@endsection
+```
+
  ## customize
 ```php
 <?php

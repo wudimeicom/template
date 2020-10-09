@@ -1,0 +1,21 @@
+<?php 
+
+class view_demo_index{ 
+
+public function M($V){ 
+extract($V);
+$_ ='';
+$_ .= '<!DOCTYPE html> <html> <head> <meta charset="UTF-8" /> <meta name="viewport" content="width=device-width, initial-scale=1.0" /> </head> <body> ';
+ if( !empty( $links)){foreach( $links as $link ){ 
+$_ .= ' <a href="';
+ $_ .=  htmlspecialchars($link); 
+$_ .= '">';
+ $_ .=  htmlspecialchars($link); 
+$_ .= '</a> ';
+ }} 
+$_ .= '</body> </html>';
+return $_;
+} 
+
+
+}  ?>

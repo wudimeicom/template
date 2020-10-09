@@ -1,0 +1,62 @@
+<?php 
+
+class view_layout_yield{ 
+
+public function M($V){ 
+extract($V);
+$_ ='';
+$_ .= '<!DOCTYPE html> <html> <head> ';
+$_ .= $this->head($V);
+$_ .= '</head> <body> ';
+$_ .= $this->content($V);
+$_ .= ' </body> </html>';
+return $_;
+} 
+
+
+public function head($V){ 
+extract($V);
+$_ ='';
+$_ .= ' ';
+return $_;
+} 
+
+
+public function content($V){ 
+extract($V);
+$_ ='';
+ $_ .= $title;
+return $_;
+} 
+
+
+}  ?><?php 
+
+class view_demo_yield extends view_layout_yield{ 
+
+public function M($V){ 
+  return parent::M($V);
+} 
+
+
+public function head($V){ 
+extract($V);
+$_ ='';
+$_ .= ' ';
+return $_;
+} 
+
+
+public function content($V){ 
+extract($V);
+$_ ='';
+$_ .= ' ';
+ $_ .= parent::content($V); 
+$_ .= ' <h1> ';
+ $_ .=  htmlspecialchars($title); 
+$_ .= ' </h1> ';
+return $_;
+} 
+
+
+}  ?>

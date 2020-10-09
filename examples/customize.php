@@ -15,7 +15,7 @@ function op_endloop( $args ){
 function op_sayHello( $args )
 {
   $code = ' $arr = ['.$args.']; ';
-  $code .= ' $__TPL .= "hello,".$arr[0]."!"; ';
+  $code .= ' $_ .= "hello,".$arr[0]."!"; ';
   return $code;
 }
 

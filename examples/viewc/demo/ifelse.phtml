@@ -1,0 +1,24 @@
+<?php 
+
+class view_demo_ifelse{ 
+
+public function M($V){ 
+extract($V);
+$_ ='';
+$_ .= ' ';
+ if(  90 <= $score && $score <=100 ){  
+$_ .= ' A ';
+ }elseif(  80 <= $score && $score <90 ){  
+$_ .= ' B ';
+ }elseif(  70 <= $score && $score <80 ){  
+$_ .= ' C ';
+ }elseif(  60 <= $score && $score <70 ){  
+$_ .= ' D ';
+ }else{  
+$_ .= 'E ';
+ } 
+return $_;
+} 
+
+
+}  ?>

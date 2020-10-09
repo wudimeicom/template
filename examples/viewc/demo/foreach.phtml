@@ -1,0 +1,26 @@
+<?php 
+
+class view_demo_foreach{ 
+
+public function M($V){ 
+extract($V);
+$_ ='';
+$_ .= '<table border="1"> ';
+ if( !empty($data)){foreach($data as $row){ 
+$_ .= ' ';
+ if( $row->id > 0 ){  
+$_ .= ' <tr> <td>';
+ $_ .=  htmlspecialchars($row->id ); 
+$_ .= '</td> <td>';
+ $_ .= $row->name; 
+$_ .= '</td> </tr> ';
+ } 
+ }}else{{ 
+$_ .= 'Sorry,no data. ';
+ }} 
+$_ .= '</table>';
+return $_;
+} 
+
+
+}  ?>
