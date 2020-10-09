@@ -201,7 +201,7 @@ comment here,won't be shown
 
 ### @php @endphp
 the code inside `@php` and `@endphp` will be translate to php tags `<?php` and `?>`.
-if you wanna display a variable,please append the var to `$__TPL`.
+if you wanna display a variable,please append the var to `$_`,the content var.
 
 ```Blade
 @php
