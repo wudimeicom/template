@@ -25,20 +25,25 @@ use Wudimei\Template;
 require_once __DIR__ . '/vendor/autoload.php';
 
 $config =[
-  'paths' => [
-    __DIR__.'/view'
-  ],
-  'compiled' => __DIR__.'/viewc',
-  //view's file extension, html
-  'ext' => 'html',
-  //if true,recompile anyhow
-  'force_compile' => true,
-  //if view is modified,recompile again.
-	 'compile_check' => true,
-	 //write "don't edit this content" in compiled file
-	 'write_do_not_edit_comment' => false,
-	 //multiple white characters to one blank char
-	 'reduce_white_chars' => false,
+ 'paths' => [
+   __DIR__.'/view'
+ ],
+ 'compiled' => __DIR__.'/viewc',
+ //view's file extension, html
+ 'ext' => 'html',
+ //if true,recompile anyhow
+ 'force_compile' => true,
+ //if view is modified,recompile again.
+
+	'compile_check' => true,
+
+	//write "don't edit this content" in compiled file
+
+	'write_do_not_edit_comment' => false,
+
+	//multiple white characters to one blank char
+
+	'reduce_white_chars' => false,
 ];
 
 
@@ -76,7 +81,9 @@ hello,Yang Qing-rong!
 Template's keywords are : `_`,`V`,`M`
 
 `$_` the template content variable.
+
 `$V` keep the variables assigned by you.
+
 `M`  is the main section name.
 
 ## @
@@ -141,9 +148,7 @@ for( $i =1; $i<3;$i++){
 	$data[] =$item;
 }
 
-echo $template->fetch('demo.foreach',
-      compact('data')
-     );
+echo $template->fetch('demo.foreach',compact('data'));
 ?>
 ```
 # Foreach
@@ -199,11 +204,11 @@ the code inside `@php` and `@endphp` will be translate to php tags `<?php` and `
 if you wanna display a variable,please append the var to `$__TPL`.
 
 ```Blade
-  @php
-  $ad ="Wudimei Template Engine is free of charge.";
-  $__TPL .= $ad; //output to template
-  
-  @endphp
+@php
+$ad ="Wudimei Template Engine is free of charge.";
+$_ .= $ad; //output to template
+
+@endphp
 ```
 ### keep
 the code between `@keep` and `@endkeep` don't change.
@@ -211,16 +216,17 @@ the code between `@keep` and `@endkeep` don't change.
 ```Blade
 @keep
 	
-	  @foreach($data as $row)
-	    @if($row->id > 0)
-	      {{$row->id }}
-	    @endif
-	  @endforeach
+	@foreach($data as $row)
+	 @if($row->id > 0)
+	  {{$row->id }}
+	 @endif
+	@endforeach
 @endkeep
 ```
 
 ## @include
 `@include(const string viewName,array $variables)`
+
  include a view by viewName,also pass view variables to it.
  
 ###  examples/view/components/nav.html
@@ -293,6 +299,7 @@ now,we create a sub view,to enhance it.
 file name: `examples/layout/yield.html`
 
 `@yield('section_name' ,'default value')`
+
 `@yield` is similar the `@section`,but `@yield` is a bachelor,no `@endyield`.
 ```Blade
 <!DOCTYPE html>
