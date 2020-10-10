@@ -20,6 +20,8 @@ class Template
      $cfg = [
          'paths' => [ '' ] ,
          'compiled' => '',
+         'cache_path' => '',
+         'cache_N' =>  3,
          'ext' => 'html',
 	        'force_compile' => true,
 	        'compile_check' => true,
@@ -33,9 +35,15 @@ class Template
 		   $this->config = $cfg;
 	 }
   
-  public function config($key)
+  public function config($key,$value=null )
   {
-    return $this->config[$key];
+    if( $value == null ){
+      return $this->config[$key];
+    }
+    else{
+      
+      return $this->config[$key]=$value;
+    }
   }
 	 public function fetch($view,$vars){
 	    unset($vars['_']);
@@ -105,6 +113,37 @@ class Template
 	    return $this->config['compiled'].'/'.$v.'.phtml'; 
 	 }
 
+	 public function getCachePath($cacheName){
+	    $p = $this->config['cache_path'];
+	    $N = $this->config['cache_N'];
+	    $md5 = md5($cacheName);
+	    for($i=0;$i<$N;$i++){
+	      $p .= '/'.substr($md5,$i,1);
+	    }
+	    $p .= '/'.$cacheName;
+	    
+	    return $p; 
+	 }
+	 
+	 public function cache( $cacheName,$seconds,$func ){
+	    $cachePath = $this->getCachePath($cacheName);
+	    if( file_exists($cachePath) ){
+	       if( filemtime($cachePath) +$seconds > time() )
+	       {
+	          return file_get_contents($cachePath);
+	       }
+	    }
+	    $str = call_user_func($func);
+	    $dir = dirname( $cachePath);
+	    if( !is_dir($dir))
+	    {
+	      mkdir( $dir,0777,true);
+	    }
+	    file_put_contents( $cachePath,$str  );
+	    
+	    return $str;
+	 }
+	 
 	 public function addOp($op)
 	 { 
 	   if( is_string($op)){

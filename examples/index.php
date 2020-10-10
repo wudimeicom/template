@@ -12,10 +12,10 @@ $vars['links'] = [
  'use_layout.php',
  'parent.php',
  'yield.php',
- 
+ 'cache.php',
  'customize.php',
 ];
 
-$content = $template->fetch('demo.index',$vars);
-echo $content;
+echo $template->fetch('demo.index',$vars);
+
 ?>

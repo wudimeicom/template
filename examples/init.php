@@ -11,6 +11,10 @@ $config =[
     __DIR__.'/view'
   ],
   'compiled' => __DIR__.'/viewc',
+  //path for storing render result
+  'cache_path' => __DIR__.'/cache',
+  //number of directory levels
+  'cache_N' =>  3,
   //view's file extension, html
   'ext' => 'html',
   //if true,recompile anyhow
@@ -20,7 +24,7 @@ $config =[
 	 //write "don't edit this content" in compiled file
 	 'write_do_not_edit_comment' => false,
 	 //multiple white characters to one blank char
-	 'reduce_white_chars' => false,
+	 'reduce_white_chars' => true,
 ];
 
 
