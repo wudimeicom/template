@@ -12,39 +12,43 @@ class Template
   protected  $op_array = [];
   
 	 public  function __construct($cfg){
-		    $this->setConfig ($cfg);
+		    $this->config ($cfg);
 	 }
 
-  protected  function setConfig($c){
-     
-     $cfg = [
-         'paths' => [ '' ] ,
-         'compiled' => '',
-         'cache_path' => '',
-         'cache_N' =>  3,
-         'ext' => 'html',
-	        'force_compile' => true,
-	        'compile_check' => true,
-	        'write_do_not_edit_comment' => true,
-	        'reduce_white_chars' => true,
-     ];
-     if( !empty( $c ))
-     {
-       $cfg = array_merge($cfg,$c);
-     }
-		   $this->config = $cfg;
-	 }
   
   public function config($key,$value=null )
   {
     if( $value == null ){
-      return $this->config[$key];
+      if( is_string( $key ))
+      {
+        return $this->config[$key];
+      }
+      elseif( is_array( $key ))
+      {
+			     $cfg = [
+			         'paths' => [ '' ] ,
+			         'compiled' => '',
+			         'cache_path' => '',
+			         'cache_N' =>  3,
+			         'ext' => 'html',
+				        'force_compile' => true,
+				        'compile_check' => true,
+				        'write_do_not_edit_comment' => true,
+				        'reduce_white_chars' => true,
+			     ];
+			     if( !empty( $key ))
+			     {
+			       $cfg = array_merge($cfg,$key);
+			     }
+					   $this->config = $cfg;
+      }
     }
     else{
       
       return $this->config[$key]=$value;
     }
   }
+  
 	 public function fetch($view,$vars){
 	    unset($vars['_']);
 	    unset($vars['M']);
