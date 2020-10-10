@@ -13,6 +13,7 @@ $vars['links'] = [
  'parent.php',
  'yield.php',
  'cache.php',
+ 'combine_cache_with_dynamic.php',
  'customize.php',
 ];
 

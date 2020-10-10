@@ -1,0 +1,26 @@
+
+@extends('layout.default')
+
+@section('head')
+
+  
+@endsection
+
+@section('content')
+
+ 
+ <table border="1" width="100%">
+  
+     <tr>
+       <td><b>Clock:{!! date('Y-m-d H:i:s') !!}</b></td>
+     </tr>
+     <tr>
+       <td height="150">{!! $content !!}</td>
+     </tr>
+     <tr>
+       <td>Email: yangqingrong@@wudimei.com</td>
+     </tr>
+  </table>
+ 
+  
+@endsection
