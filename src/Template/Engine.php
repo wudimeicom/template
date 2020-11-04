@@ -1,12 +1,12 @@
 <?php
-namespace Wudimei;
+namespace Wudimei\Template;
 
 use Wudimei\Template\Parser;
 
-require_once __DIR__ . '/Template/Parser.php';
-require_once __DIR__ . '/Template/Lexer.php';
+require_once __DIR__ . '/Parser.php';
+require_once __DIR__ . '/Lexer.php';
 
-class Template
+class Engine
 {
   protected  $config = [];
   protected  $op_array = [];
@@ -120,6 +120,10 @@ class Template
 	 public function getCachePath($cacheName){
 	    $p = $this->config['cache_path'];
 	    $N = $this->config['cache_N'];
+	    if($N>10)
+	    {
+	      $N =10;
+	    }
 	    $md5 = md5($cacheName);
 	    for($i=0;$i<$N;$i++){
 	      $p .= '/'.substr($md5,$i,1);

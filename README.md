@@ -19,9 +19,9 @@ composer require wudimeicom/template:dev-main
 ini_set("display_errors",true);
 error_reporting(E_ALL|E_ERROR);
 */
-use Wudimei\Template;
+use Wudimei\Template\Engine;
 
-//require_once __DIR__ . '/../src/Template.php';
+//require_once __DIR__ . '/../src/Template/Engine.php';
 require_once __DIR__ . '/vendor/autoload.php';
 
 $config =[
@@ -47,7 +47,7 @@ $config =[
 ];
 
 
-$template =new Template($config);
+$template =new Engine($config);
 
 ```
 
@@ -62,8 +62,8 @@ $vars =[];
 $vars['name'] ='Yang Qing-rong';
 
 
-$content = $template->fetch('demo.hello',$vars);
-echo $content;
+echo  $template->fetch('demo.hello',$vars);
+
 ?>
 ```
 
@@ -108,8 +108,8 @@ $vars =[];
 $vars['score'] = 85;
 
 
-$content = $template->fetch('demo.ifelse',$vars);
-echo $content;
+echo  $template->fetch('demo.ifelse',$vars);
+
 ?>
 ```
 ### examples/view/demo/ifelse.html

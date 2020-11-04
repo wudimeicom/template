@@ -2,9 +2,9 @@
 ini_set("display_errors",true);
 error_reporting(E_ALL|E_ERROR);
 
-use Wudimei\Template;
+use Wudimei\Template\Engine;
 
-require_once __DIR__ . '/../src/Template.php';
+require_once __DIR__ . '/../src/Template/Engine.php';
 
 $config =[
   'paths' => [
@@ -28,4 +28,4 @@ $config =[
 ];
 
 
-$template =new Template($config);
+$template =new Engine($config);
