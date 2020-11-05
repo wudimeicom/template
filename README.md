@@ -1,4 +1,5 @@
 # template
+this project has been move to : [wudimei/template](https://github.com/wudimei/template)
 Wudimeicom/template is a php template engine like blade,They aren't the same.
 
 
@@ -7,7 +8,7 @@ This software is distributed under the [LGPL 2.1](http://www.gnu.org/licenses/lg
 
 # Installation
 ```sh
-composer require wudimeicom/template:dev-main
+composer require wudimei/template:dev-main
 ```
 
 # Usage
